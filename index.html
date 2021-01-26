@@ -16,7 +16,7 @@
       <div class="container">
          <div class="cart">
             <div class="col-md-12 col-lg-10 mx-auto">
-               <div class="cart-item">
+               <div id="phone-item" class="cart-item">
                   <div class="row">
                      <div class="col-md-7 center-item">
                         <img src="images/product-1.png" alt="">
@@ -30,12 +30,12 @@
                            <button id="phone-plus-btn" class="btn btn-default"><i class="fas fa-plus"></i></button>
                         </div>
                         <h5>$ <span id="phone-price">1219</span></h5>
-                        <img src="images/remove.png" alt="" class="remove-item">
+                        <img id="phone-remove" src="images/remove.png" alt="" class="remove-item">
                      </div>
                   </div>
                </div>
 
-               <div class="cart-item">
+               <div id="case-item" class="cart-item">
                   <div class="row">
                      <div class="col-md-7 center-item mx-auto">
                         <img src="images/product-2.png" alt="">
@@ -49,7 +49,7 @@
 
                         </div>
                         <h5>$<span id="case-price">59</span></h5>
-                        <img src="images/remove.png" alt="" class="remove-item">
+                        <img id="case-remove" src="images/remove.png" alt="" class="remove-item">
                      </div>
                   </div>
                </div>
@@ -185,6 +185,20 @@ const minusBtn = document.getElementById("phone-minus-btn");
          document.getElementById("total-value").innerText = totalCaseDecAmount;
       
 })
+
+// phone item remove
+const phoneRemoveItem = document.getElementById("phone-remove");
+      phoneRemoveItem.addEventListener("click", function(){
+      const phoneItem = document.getElementById("phone-item");
+      phoneItem.style.display = 'none';
+   })
+
+   // Case item remove
+const caseRemoveItem = document.getElementById("case-remove");
+      caseRemoveItem.addEventListener("click", function(){
+      const caseItem = document.getElementById("case-item");
+      caseItem.style.display = 'none';
+   })
 
 function allPlusBtn(id){
    const addValue = document.getElementById(id).value;
