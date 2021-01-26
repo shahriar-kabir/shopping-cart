@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+   <title>Shopping Cart</title>
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css" rel="stylesheet" />
+   <link href="style.css" rel="stylesheet">
+</head>
+
+<body>
+
+   <section>
+      <div class="container">
+         <div class="cart">
+            <div class="col-md-12 col-lg-10 mx-auto">
+               <div class="cart-item">
+                  <div class="row">
+                     <div class="col-md-7 center-item">
+                        <img src="images/product-1.png" alt="">
+                        <h5>iPhone 11 128GB Black</h5>
+                     </div>
+
+                     <div class="col-md-5 center-item">
+                        <div class="input-group number-spinner">
+                           <button id="phone-minus-btn" class="btn btn-default"><i class="fas fa-minus"></i></button>
+                           <input id="phone-add-value" type="text" class="form-control text-center" value="1">
+                           <button id="phone-plus-btn" class="btn btn-default"><i class="fas fa-plus"></i></button>
+                        </div>
+                        <h5>$ <span id="phone-price">1219</span></h5>
+                        <img src="images/remove.png" alt="" class="remove-item">
+                     </div>
+                  </div>
+               </div>
+
+               <div class="cart-item">
+                  <div class="row">
+                     <div class="col-md-7 center-item mx-auto">
+                        <img src="images/product-2.png" alt="">
+                        <h5>iPhone 11 Silicone Case - Black</h5>
+                     </div>
+                     <div class="col-md-5 center-item">
+                        <div class="input-group number-spinner">
+                           <button id="case-minus-btn" class="btn btn-default"><i class="fas fa-minus"></i></button>
+                           <input id="case-add-value" type="text" class="form-control text-center" value="1">
+                           <button id="case-plus-btn" class="btn btn-default"><i class="fas fa-plus"></i></button>
+
+                        </div>
+                        <h5>$<span id="case-price">59</span></h5>
+                        <img src="images/remove.png" alt="" class="remove-item">
+                     </div>
+                  </div>
+               </div>
+
+               <div class="cart-item">
+                  <div class="row">
+
+                     <div class="col-md-8">
+                        <h5>Subtotal: </h5>
+                        <h5>Tax:</h5>
+                        <h5>Total:</h5>
+                     </div>
+
+                     <div class="col-md-4 status">
+                        <h5>$ <span id="sub-value">1278</span></h5>
+                        <h5>$ <span id="tax-value">0</span></h5>
+                        <h5>$ <span id="total-value">1278</span></h5>
+                     </div>
+                  </div>
+               </div>
+               <div class="col-md-12 pt-4 pb-4">
+                  <button type="button" class="btn btn-success check-out">Check Out</button>
+               </div>
+            </div>
+         </div>
+      </div>
+   </section>
+
+<script>
+
+// For I-Phone
+
+// Plus button handler
+const plusBtn = document.getElementById("phone-plus-btn");
+plusBtn.addEventListener("click", function(){
+   allPlusBtn("phone-add-value");
+   // const addValue = document.getElementById("phone-add-value").value;
+   // const addValueNum = parseFloat(addValue)+1;
+   // document.getElementById("phone-add-value").value = addValueNum;
+
+   const phonePrice = document.getElementById("phone-price").innerText;
+   const phonePriceNum  = parseFloat(phonePrice);
+   const totalPhonePrice = phonePriceNum+1219;
+   document.getElementById("phone-price").innerText = totalPhonePrice;
+
+   const subValue = document.getElementById("sub-value").innerText;
+   const subValueNum = parseFloat(subValue);
+   const totalSubValue = subValueNum + 1219;
+   document.getElementById("sub-value").innerText = totalSubValue;
+
+   const totalValue = document.getElementById("total-value").innerText;
+   const totalValueNum = parseFloat(totalValue);
+   const totalAmount = totalValueNum + 1219;
+   document.getElementById("total-value").innerText = totalAmount;
+
+
+
+})
+
+// Minus Button Handler
+const minusBtn = document.getElementById("phone-minus-btn");
+   minusBtn.addEventListener("click", function(){
+      allMinusBtn("phone-add-value");
+      // const decValue = document.getElementById("phone-add-value").value;
+      // const decValueNum = parseFloat(decValue)-1;
+      // document.getElementById("phone-add-value").value = decValueNum;
+
+      const decPhonePrice = document.getElementById("phone-price").innerText;
+      const decPhonePriceNum  = parseFloat(decPhonePrice);
+      const totalDecPhonePrice = decPhonePriceNum-1219;
+      document.getElementById("phone-price").innerText = totalDecPhonePrice;
+
+      const subDecValue = document.getElementById("sub-value").innerText;
+      const subDecValueNum = parseFloat(subDecValue);
+      const totalSubDecValue = subDecValueNum - 1219;
+      document.getElementById("sub-value").innerText = totalSubDecValue;
+
+      const totalDecValue = document.getElementById("total-value").innerText;
+      const totalDecValueNum = parseFloat(totalDecValue);
+      const totalDecAmount = totalDecValueNum - 1219;
+      document.getElementById("total-value").innerText = totalDecAmount;
+      
+})
+
+// For Silicon Case
+// Case Plus Button Handler
+
+   const casePlusBtn = document.getElementById("case-plus-btn");
+   casePlusBtn.addEventListener("click", function(){
+      allPlusBtn("case-add-value");
+      // const addCaseValue = document.getElementById("case-add-value").value;
+      // const addCaseValueNum = parseFloat(addCaseValue)+1;
+      // document.getElementById("case-add-value").value = addCaseValueNum;
+
+      const casePrice = document.getElementById("case-price").innerText;
+      const casePriceNum  = parseFloat(casePrice);
+      const totalCasePrice = casePriceNum+59;
+      document.getElementById("case-price").innerText = totalCasePrice;
+
+      const subCaseValue = document.getElementById("sub-value").innerText;
+      const subCaseValueNum = parseFloat(subCaseValue);
+      const totalSubCaseValue = subCaseValueNum + 59;
+      document.getElementById("sub-value").innerText = totalSubCaseValue;
+
+      const totalCaseValue = document.getElementById("total-value").innerText;
+      const totalCaseValueNum = parseFloat(totalCaseValue);
+      const totalCaseAmount = totalCaseValueNum + 59;
+      document.getElementById("total-value").innerText = totalCaseAmount;                                                      
+      
+   })
+
+   // Minus Button Handler
+         const caseMinusBtn = document.getElementById("case-minus-btn");
+         caseMinusBtn.addEventListener("click", function(){
+            allMinusBtn("case-add-value");
+         // const decCaseValue = document.getElementById("case-add-value").value;
+         // const decCaseValueNum = parseFloat(decCaseValue)-1;
+         // document.getElementById("case-add-value").value = decCaseValueNum;
+
+         const decCasePrice = document.getElementById("case-price").innerText;
+         const decCasePriceNum  = parseFloat(decCasePrice);
+         const totalDecCasePrice = decCasePriceNum-59;
+         document.getElementById("case-price").innerText = totalDecCasePrice;
+
+         const subCaseDecValue = document.getElementById("sub-value").innerText;
+         const subCaseDecValueNum = parseFloat(subCaseDecValue);
+         const totalSubCaseDecValue = subCaseDecValueNum - 59;
+         document.getElementById("sub-value").innerText = totalSubCaseDecValue;
+
+         const totalCaseDecValue = document.getElementById("total-value").innerText;
+         const totalCaseDecValueNum = parseFloat(totalCaseDecValue);
+         const totalCaseDecAmount = totalCaseDecValueNum - 59;
+         document.getElementById("total-value").innerText = totalCaseDecAmount;
+      
+})
+
+function allPlusBtn(id){
+   const addValue = document.getElementById(id).value;
+   const addValueNum = parseFloat(addValue)+1;
+   document.getElementById(id).value = addValueNum;
+}
+function allMinusBtn(id){
+   const addValue = document.getElementById(id).value;
+   const addValueNum = parseFloat(addValue)-1;
+   document.getElementById(id).value = addValueNum;
+}
+
+</script>
+</body>
+</html>
